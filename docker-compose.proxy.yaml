@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  proxy-reverse:
+    image: proxy-reverse
+    build: nginx/.
+    restart: always
+    container_name: proxy-reverse
+    hostname: proxy-reverse
+    ports:
+      - "80:80"
+    volumes:
+      - proxy_reverse_data:/etc/nginx
+      - proxy_reverse_data_log:/var/log/nginx
+
+volumes:
+  proxy_reverse_data:
+  proxy_reverse_data_log:
