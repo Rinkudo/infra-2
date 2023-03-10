@@ -1,7 +1,4 @@
-FROM nginx:alpine
-
-RUN sudo apk update && sudo apk upgrade
-RUN sudo apk add nginx-plus-module-modsecurity
+FROM owasp/modsecurity-crs
 
 COPY ./modsec /etc/nginx/modsec
 
