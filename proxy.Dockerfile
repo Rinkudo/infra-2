@@ -1,7 +1,7 @@
-FROM nginx
+FROM owasp/modsecurity-crs
 
-RUN sudo apt update && sudo apt upgrade
-RUN sudo apt install nginx-plus-module-modsecurity
+# RUN sudo apt update && sudo apt upgrade
+# RUN sudo apt install nginx-plus-module-modsecurity
 
 COPY ./nginx/modsec /etc/nginx/modsec
 
