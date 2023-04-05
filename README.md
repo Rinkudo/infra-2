@@ -1,11 +1,11 @@
 ### proxy
 ```bash
-docker run --env-file proxy.env -p 80:80 -v $(pwd)/proxy_reverse_data_log:/var/log/nginx -v $(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf nginx-alpine 
+sudo docker run --env-file proxy.env -p 80:80 -v $(pwd)/proxy_reverse_data_log:/var/log/nginx -v $(pwd)/conf.d:/etc/nginx/conf.d nginx:alpine
 ```
 
 ### streama
 ```bash
-docker build -t streama -f service.Dockerfile  .
+docker build -t streama -f service.Dockerfile .
 docker run --env-file streama.env -p 8080:8080 -d streama
 ```
 

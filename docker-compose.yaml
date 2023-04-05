@@ -45,8 +45,7 @@ services:
       MYSQL_PASSWORD: streama_password
 
   proxy-reverse:
-    image: proxy-reverse
-    build: nginx/.
+    image: nginx:alpine
     restart: always
     container_name: proxy-reverse
     hostname: proxy-reverse
