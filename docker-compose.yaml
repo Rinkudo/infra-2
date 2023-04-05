@@ -21,7 +21,9 @@ services:
 
   streama:
     image: streama
-    build: .
+    build: 
+      context: .
+      dockerfile: service.Dockerfile
     restart: always
     container_name: streama
     hostname: streama
@@ -55,7 +57,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - proxy_reverse_data:/etc/nginx
+      - nginx.conf:/etc/nginx/conf.d/default.conf
       - proxy_reverse_data_log:/var/log/nginx
 
 networks:
