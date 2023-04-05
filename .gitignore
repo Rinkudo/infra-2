@@ -1,2 +1,4 @@
 /videos
 *.env
+db_data
+proxy_reverse_data_log

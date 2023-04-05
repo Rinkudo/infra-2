@@ -5,4 +5,6 @@ FROM owasp/modsecurity-crs:nginx
 
 COPY ./nginx/modsec /etc/nginx/modsec
 
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/proxy.conf
+
+CMD ["nginx", "-g", "daemon off;"]
