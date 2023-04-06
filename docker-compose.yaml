@@ -13,11 +13,8 @@ services:
       - 3306
     volumes:
       - db_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: streama_root_password
-      MYSQL_USER: streama
-      MYSQL_DATABASE: streama
-      MYSQL_PASSWORD: streama_password
+    env_file:
+      - db.env
 
   streama:
     image: streama
@@ -36,13 +33,8 @@ services:
     volumes:
       - ./videos:/data/streama # Change to your video folder
       - app_data:/app/streama
-    environment:
-      ACTIVE_PROFILE: mysql
-      MYSQL_HOST: mysql
-      MYSQL_PORT: 3306
-      MYSQL_DB: streama
-      MYSQL_USER: streama
-      MYSQL_PASSWORD: streama_password
+    env_file:
+      - service.env
 
   proxy-reverse:
     image: nginx:alpine
